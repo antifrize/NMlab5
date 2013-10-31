@@ -32,6 +32,9 @@ class Lab1MainWidget(QtGui.QWidget):
         self.bLineEdit = QtGui.QLineEdit()
         self.bLineEdit.textChanged.connect(AppConsts.setB)
         self.bLineEdit.setText(str(AppConsts.b))
+        self.cLineEdit = QtGui.QLineEdit()
+        self.cLineEdit.textChanged.connect(AppConsts.setC)
+        self.cLineEdit.setText(str(AppConsts.c))
         self.sigmaLineEdit = QtGui.QLineEdit()
         self.sigmaLineEdit.textChanged.connect(AppConsts.setSigma)
         self.sigmaLineEdit.setText(str(AppConsts.sigma))
@@ -52,6 +55,16 @@ class Lab1MainWidget(QtGui.QWidget):
         self.qLineEdit.textChanged.connect(AppConsts.setQ)
         self.qLineEdit.setText(str(AppConsts.q))
 
+        equationLayout = QtGui.QHBoxLayout()
+        equationLayout.addWidget(QtGui.QLabel("du/dt="))
+        equationLayout.addWidget(self.aLineEdit)
+        equationLayout.addWidget(QtGui.QLabel("d^2u/dx^2+"))
+        equationLayout.addWidget(self.bLineEdit)
+        equationLayout.addWidget(QtGui.QLabel("du/dx+"))
+        equationLayout.addWidget(self.cLineEdit)
+
+
+
         constantsLayout = QtGui.QFormLayout()
         constantsLayout.addRow(QtGui.QLabel("a="),self.aLineEdit)
         constantsLayout.addRow(QtGui.QLabel("b="),self.bLineEdit)
@@ -71,6 +84,7 @@ class Lab1MainWidget(QtGui.QWidget):
         settingsLayout.addItem(constantsLayout2)
 
         self.mainLayout = QtGui.QVBoxLayout()
+        self.mainLayout.addItem(equationLayout)
         self.mainLayout.addItem(settingsLayout)
         self.mainLayout.addWidget(GraphWidget())
         self.setLayout(self.mainLayout)
