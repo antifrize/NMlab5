@@ -10,7 +10,8 @@ class Scheme:
 
 
 a = 1
-b = 1
+b = 0
+c = 0
 lN = 10
 tN = 40
 sigma = 0.5
@@ -78,6 +79,9 @@ def setLN(lN_):
     global lN
     lN = int(lN_)
 
+def setC(c_):
+    global c
+    c = c_
 
 def setApprox(n):
     pass

@@ -20,6 +20,7 @@ class Lab1MainWidget(QtGui.QWidget):
         self.redraw()
 
     def updateFields(self):
+
         self.aLineEdit.setText(str(AppConsts.a))
         self.bLineEdit.setText(str(AppConsts.b))
         self.sigmaLineEdit.setText(str(AppConsts.sigma))
@@ -83,23 +84,31 @@ class Lab1MainWidget(QtGui.QWidget):
                 label.setPixmap(QtGui.QPixmap(string))
                 print QtGui.QPixmap(string).isNull()
                 return label
-
+        class LineEditFactory:
+            @staticmethod
+            def getLineEdit(outer,name):
+                methodName = name.capitalize()
+                le = QtGui.QLineEdit
+                le.editingFinished.connect(RefreshListenerFactory.getRefresherListener(getattr(AppConsts,"set"+methodName), outer,le))
+                le.setObjectName(QtCore.QString(name+"LineEdit"))
+                return le
         settingsLayout = QtGui.QHBoxLayout()
         settingsLayout.setSpacing(20)
-        self.aLineEdit = QtGui.QLineEdit()
-        self.aLineEdit.editingFinished.connect(RefreshListenerFactory.getRefresherListener(AppConsts.setA, self,self.aLineEdit))
-        self.aLineEdit.setText(str(AppConsts.a))
-        self.bLineEdit = QtGui.QLineEdit()
-        self.bLineEdit.editingFinished.connect(RefreshListenerFactory.getRefresherListener(AppConsts.setB, self,self.bLineEdit))
-        self.bLineEdit.setText(str(AppConsts.b))
-        self.sigmaLineEdit = QtGui.QLineEdit()
-        self.sigmaLineEdit.editingFinished.connect(RefreshListenerFactory.getRefresherListener(AppConsts.setSigma, self,self.sigmaLineEdit))
-        self.sigmaLineEdit.setText(str(AppConsts.sigma))
-        self.lNLineEdit = QtGui.QLineEdit()
-        self.lNLineEdit.editingFinished.connect(RefreshListenerFactory.getRefresherListener(AppConsts.setLN, self,self.lNLineEdit))
-        self.lNLineEdit.setText(str(AppConsts.lN))
-        self.hLineEdit = QtGui.QLabel()
-        self.hLineEdit.setText(str(AppConsts.h))
+
+        self.aLineEdit = LineEditFactory.getLineEdit(self, "a")
+        self.bLineEdit = LineEditFactory.getLineEdit(self, "b")
+        self.cLineEdit = LineEditFactory.getLineEdit(self, "c")
+
+        self.alphaLineEdit = LineEditFactory.getLineEdit(self, "alpha")
+        self.betaLineEdit = LineEditFactory.getLineEdit(self, "beta")
+        self.gammaLineEdit = LineEditFactory.getLineEdit(self, "gamma")
+        self.deltaLineEdit = LineEditFactory.getLineEdit(self, "delta")
+
+        self.sigmaLineEdit = LineEditFactory.getLineEdit(self, "sigma")
+        self.lNLineEdit = LineEditFactory.getLineEdit(self, "lN")
+        self.hLineEdit = LineEditFactory.getLineEdit(self, "h")
+
+
         self.refreshButton = QtGui.QPushButton(u"Пересчитать")
         self.refreshButton.pressed.connect(self.loadData)
 
@@ -131,12 +140,24 @@ class Lab1MainWidget(QtGui.QWidget):
         self.errorWidget = pg.PlotWidget()
 
         equationLayout = QtGui.QHBoxLayout()
-        # equationLayout.addWidget(LabelFactory.getLabel("C:\Users\Antifrize\PycharmProjects\lab5\Pics\dudt.jpg"))
-        equationLayout.addWidget(Qt)
-        equationLayout.addWidget(QtGui.QLabel("="))
+        equationLayout.addWidget(QtGui.QLabel("du/dt="))
+        equationLayout.addWidget(self.aLineEdit)
+        equationLayout.addWidget(QtGui.QLabel("d^2u/dx^2+"))
+        equationLayout.addWidget(self.bLineEdit)
+        equationLayout.addWidget(QtGui.QLabel("du/dx+"))
+        equationLayout.addWidget(self.cLineEdit)
+
+        initCondLayout = QtGui.QHBoxLayout()
+        initCondLayout.addWidget(self.alphaLineEdit)
+        initCondLayout.addWidget(QtGui.QLabel("u(0,t)"))
+        initCondLayout.addWidget(self.betaLineEdit)
+        initCondLayout.addWidget(QtGui.QLabel("du/dx(0,t)"))
+        initCondLayout.addWidget(self.gammaLineEdit)
+        initCondLayout.addWidget(QtGui.QLabel("u(l,t)"))
+        initCondLayout.addWidget(self.deltaLineEdit)
+        initCondLayout.addWidget(QtGui.QLabel("du/dx(l,t)"))
+
         constantsLayout = QtGui.QFormLayout()
-        constantsLayout.addRow(QtGui.QLabel(u"a="),self.aLineEdit)
-        constantsLayout.addRow(QtGui.QLabel(u"b="),self.bLineEdit)
         constantsLayout.addRow(QtGui.QLabel("lN="),self.lNLineEdit)
         constantsLayout.addRow(QtGui.QLabel(u"h="),self.hLineEdit)
         constantsLayout.addRow(QtGui.QLabel(u"sigma="),self.sigmaLineEdit)
@@ -168,6 +189,7 @@ class Lab1MainWidget(QtGui.QWidget):
 
         self.mainLayout = QtGui.QVBoxLayout()
         self.mainLayout.addItem(equationLayout)
+        self.mainLayout.addItem(initCondLayout)
         self.mainLayout.addItem(settingsLayout)
         self.mainLayout.addWidget(self.slider)
         self.mainLayout.addItem(graphsLayout)

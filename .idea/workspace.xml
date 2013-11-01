@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0673851e-bd36-499f-b6d7-ffef5781061e" name="Default" comment="renew">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/AnalogGraphModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ExplicitGraphModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GraphModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GridGraphModel.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ImplicitGraphModel.py" />
+    <list default="true" id="0673851e-bd36-499f-b6d7-ffef5781061e" name="Default" comment="">
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab5\Pics\dudt.jpg" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppConstants.py" afterPath="$PROJECT_DIR$/AppConstants.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GraphWidget.py" afterPath="$PROJECT_DIR$/GraphWidget.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TMA.py" afterPath="$PROJECT_DIR$/TMA.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/NMlab5.iml" afterPath="$PROJECT_DIR$/.idea/NMlab5.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5.py" afterPath="$PROJECT_DIR$/lab5.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NMlab5.iws" />
@@ -34,19 +30,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lab5.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="lab5.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lab5.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="3451">
+            <state line="111" column="8" selection-start="4787" selection-end="4787" vertical-scroll-proportion="0.6155779" vertical-offset="1523" max-vertical-offset="3706">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AppConstants.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ExplicitGraphModel.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AppConstants.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AppConstants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="0" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.8718802" vertical-offset="989" max-vertical-offset="1615">
+            <state line="61" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1683">
               <folding />
             </state>
           </provider>
@@ -71,6 +76,7 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/AppConstants.py" />
+        <option value="$PROJECT_DIR$/lab5.py" />
       </list>
     </option>
   </component>
@@ -124,16 +130,58 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pics" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
-  <component name="RunManager">
+  <component name="PyConsoleOptionsProvider">
+    <option name="myPythonConsoleState">
+      <PyConsoleSettings />
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.lab5">
+    <configuration default="false" name="lab5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="NMlab5" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab5.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
     <configuration default="true" type="tests" factoryName="py.test">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -255,7 +303,14 @@
       <option name="USE_PATTERN" value="false" />
       <method />
     </configuration>
-    <list size="0" />
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Python.lab5" />
+    </list>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.lab5" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
   <component name="SvnConfiguration" maxAnnotateRevisions="500" myUseAcceleration="nothing" myAutoUpdateAfterCommit="false" cleanupOnStartRun="false" SSL_PROTOCOLS="all">
@@ -281,21 +336,27 @@
       <created>1383049495888</created>
       <updated>1383049495888</updated>
     </task>
+    <task id="LOCAL-00001" summary="refreshed sources&#10;">
+      <created>1383275558450</created>
+      <updated>1383275558450</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.6702454" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3297546" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -313,6 +374,8 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
+    <MESSAGE value="refreshed sources&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="refreshed sources&#10;" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -346,16 +409,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5.py">
+    <entry file="file://$PROJECT_DIR$/AppConstants.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="0" selection-start="24" selection-end="24" vertical-scroll-proportion="0.0" vertical-offset="17" max-vertical-offset="3451">
+        <state line="61" column="0" selection-start="907" selection-end="907" vertical-scroll-proportion="0.0" vertical-offset="816" max-vertical-offset="1683">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/AppConstants.py">
+    <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="89" column="0" selection-start="1257" selection-end="1257" vertical-scroll-proportion="0.8718802" vertical-offset="989" max-vertical-offset="1615">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="527">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab5.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="8" selection-start="4787" selection-end="4787" vertical-scroll-proportion="0.6155779" vertical-offset="1523" max-vertical-offset="3706">
           <folding />
         </state>
       </provider>
