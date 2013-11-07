@@ -34,7 +34,7 @@ class Lab1MainWidget(QtGui.QWidget):
         self.redraw()
 
     def loadData(self):
-        self.analogGraphModel = AnalogGraphModel(lambda x,t: math.exp(-AppConsts.a*t)*math.cos(x+AppConsts.b*t))
+        self.analogGraphModel = AnalogGraphModel(lambda x,t: AppConsts.getAnalog(x,t))
         self.explicitGraphModel = ExplicitGraphModel.ExplicitGraphModel()
         self.implicitGraphModel = ImplicitGraphModel.ImplicitGraphModel()
         if self.schemeComboBox.currentIndex() == 0:
@@ -84,6 +84,7 @@ class Lab1MainWidget(QtGui.QWidget):
                 label.setPixmap(QtGui.QPixmap(string))
                 print QtGui.QPixmap(string).isNull()
                 return label
+
         class LineEditFactory:
             class Type:
                 integer = 0
@@ -96,7 +97,7 @@ class Lab1MainWidget(QtGui.QWidget):
                     t = float(getattr(AppConsts,name)) if type==LineEditFactory.Type.integer else getattr(AppConsts,name)
                     t = a
 
-                setattr(AppConsts,methodName,setter)
+                setattr(AppConsts,methodName,staticmethod(setter))
                 le.editingFinished.connect(RefreshListenerFactory.getRefresherListener(getattr(AppConsts,methodName), outer,le))
                 le.setObjectName(QtCore.QString(name+"LineEdit"))
                 return le

@@ -2,7 +2,7 @@ __author__ = 'Antifrize'
 
 
 import GraphModel
-import AppConstants as AppConsts
+from AppConstants import AppConsts
 import math
 
 class GridGraphModel(GraphModel.GraphModel):
