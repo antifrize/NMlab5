@@ -7,7 +7,7 @@ import pyqtgraph as pg
 from AppConstants import *
 import ExplicitGraphModel
 import ImplicitGraphModel
-
+from TaskLoader import TaskLoader
 
 
 class Lab1MainWidget(QtGui.QWidget):

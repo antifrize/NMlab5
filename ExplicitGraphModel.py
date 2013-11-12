@@ -25,3 +25,4 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
             #print((AppConsts.gamma/AppConsts.h)/(AppConsts.delta + AppConsts.gamma/AppConsts.h),AppConsts.phi_l(AppConsts.gradT[t]))
 
             self.grid.append(newLine)
+        print self.grid[1]

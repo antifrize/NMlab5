@@ -1,27 +1,29 @@
 __author__ = 'Antifrize'
 
-import math
+from math import *
+
+
 class AppConsts:
     class Scheme:
         IMPLICIT = 0
         EXPLICIT = 1
         MIXED = 2
 
-    a = 1
+    a = 0.01
     b = 0
     c = ""
 
-    lN = 10
+    lN = 20
     tN = 40
 
     sigma = 0.5
     q = 0
 
     x_0 = 0
-    x_l = math.pi
+    x_l = 1
 
     minT = 0
-    maxT = 5
+    maxT = 5.
 
     alpha = 1
     beta = -1
@@ -30,12 +32,12 @@ class AppConsts:
 
     scheme = Scheme.EXPLICIT
 
-    initCondition = "math.sin(2*math.pi*x)"
+    initCondition = "sin(2*pi*x)"
     phi_0 = "0"
     phi_l = "0"
-    resF = "math.exp(-4*math.pi**2*AppConsts.a*t)*math.sin(2*math.pi*x)"
+    resF = "exp(-4*pi**2*AppConsts.a*t)*sin(2*pi*x)"
 
-    h = (x_l-x_0)/lN
+    h = (x_l-x_0)*1./lN
     print('h = ',h)
     tau = sigma * h**2/a
     print('tau = ',tau)
@@ -45,11 +47,42 @@ class AppConsts:
     gradT = [minT+i*tau for i in range(tN+1)]
     print('gradT = ', gradT)
 
+    @staticmethod
+    def getResF(x,t):
+        return(eval(AppConsts.resF))
+
+    @staticmethod
+    def translate(string):
+        for s in ['a','b']:
+            string = string.replace(s,'AppConsts.'+s)
+        return string
+
+    @staticmethod
+    def loadTask(task):
+        AppConsts.a = eval(task['a'])
+        AppConsts.b = eval(task['b'])
+        AppConsts.c = task['c']
+        AppConsts.x_l = eval(task['x_l'])
+        AppConsts.initCondition = task['initCondition']
+        AppConsts.phi_0 = task['phi_0']
+        AppConsts.phi_l = task['phi_l']
+        AppConsts.resF = task['resF']
+        AppConsts.alpha = eval(task['alpha'])
+        AppConsts.beta =  eval(task['beta'])
+        AppConsts.gamma =  eval(task['gamma'])
+        AppConsts.delta =  eval(task['delta'])
 
     @staticmethod
     def refresh():
-        pass
-
+        AppConsts.h = (AppConsts.x_l-AppConsts.x_0)*1./AppConsts.lN
+        print('h = ',AppConsts.h)
+        AppConsts.tau = AppConsts.sigma * AppConsts.h**2/AppConsts.a
+        print('tau = ',AppConsts.tau)
+        AppConsts.tN = int((AppConsts.maxT-AppConsts.minT)/AppConsts.tau)
+        AppConsts.gradX = [AppConsts.x_0+i*AppConsts.h for i in range(AppConsts.lN+1)]
+        print('gradX = ', AppConsts.gradX)
+        AppConsts.gradT = [AppConsts.minT+i*AppConsts.tau for i in range(AppConsts.tN+1)]
+        print('gradT = ', AppConsts.gradT)
     @staticmethod
     def getInitCondition(x):
         return eval(AppConsts.initCondition)
