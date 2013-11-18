@@ -88,7 +88,7 @@ class Lab1MainWidget(QtGui.QWidget):
             @staticmethod
             def getLineEdit(outer,name):
                 methodName = name.capitalize()
-                le = QtGui.QLineEdit
+                le = QtGui.QLineEdit()
                 le.editingFinished.connect(RefreshListenerFactory.getRefresherListener(getattr(AppConsts,"set"+methodName), outer,le))
                 le.setObjectName(QtCore.QString(name+"LineEdit"))
                 return le

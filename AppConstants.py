@@ -12,7 +12,7 @@ class Scheme:
 a = 1
 b = 0
 c = 0
-lN = 10
+lN = 15
 tN = 40
 sigma = 0.5
 q = 0
@@ -59,6 +59,32 @@ def setB(b_):
     global b
     b = float(b_)
 
+def setC(c_):
+    global c
+    c = c_
+
+def setAlpha(alpha_):
+    global alpha
+    alpha = alpha_
+
+def setBeta(beta_):
+    global beta
+    beta = beta_
+
+def setGamma(gamma_):
+    global gamma
+    gamma = gamma_
+
+def setDelta(delta_):
+    global delta
+    delta = delta_
+
+def setLn(ln_):
+    global lN
+    lN = ln_
+
+
+
 def setQ(q_):
     global q
     q = float(q_)
@@ -71,17 +97,9 @@ def setH(h_):
     global h
     h = float(h_)
 
-def setA(a_):
-    global a
-    a = float(a_)
-
 def setLN(lN_):
     global lN
     lN = int(lN_)
-
-def setC(c_):
-    global c
-    c = c_
 
 def setApprox(n):
     pass

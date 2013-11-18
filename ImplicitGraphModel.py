@@ -41,9 +41,11 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
     def makeGrid(self):
         self.grid=[]
         self.grid.append([AppConsts.initCondition(x) for x in AppConsts.gradX])
+        print(self.grid)
         for k in range(1,len(AppConsts.gradT)-1):
             slae = self.makeSLAE(self.grid[-1])
 
             self.grid.append(solveTMA(slae))
             if k==1:
-                print(solveTMA(slae))
+                pass
+                #print(solveTMA(slae))
