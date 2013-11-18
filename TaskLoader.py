@@ -26,10 +26,9 @@ class TaskLoader:
                 newValue = TaskLoader.addMath(value,TaskLoader.mathFs)
                 items[key]=newValue
             TaskLoader.tasks.append(items)
-
     @staticmethod
     def getTask(n):
-        return TaskLoader.tasks[n-1]
+        return TaskLoader.tasks[n]
 
 
 TaskLoader().init()

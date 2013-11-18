@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+from numpy.lib.function_base import blackman
+
 __author__ = 'Antifrize'
 
 from AppConstants import AppConsts
@@ -12,25 +14,40 @@ from AnalogGraphModel import *
 from ImplicitGraphModel import *
 from ExplicitGraphModel import *
 
+
+a = AppConsts.a
+
+class MyLineEdit(QtGui.QLineEdit):
+    def focusOutEvent(self, QFocusEvent):
+        # var = self.accessibleName()[:-8]
+        # setter = getattr(AppConsts,"set"+str(var).capitalize())
+        # setter(str(self.text()))
+        pass
 class Lab5MainWidget(QtGui.QWidget):
-    floatNames =("a","b","Q","alpha","beta","delta","gamma")
-    evalNames = ("c","phi_0","phi_l","initCondition")
+    floatNames =("a","b","Q","alpha","beta","delta","gamma","lN","sigma")
+    evalNames = ("c","phi_0","phi_l","initCondition","resF")
 
     def __init__(self,parent=None):
         QtGui.QWidget.__init__(self,parent)
+        pg.setConfigOption('background', 'w')
+        pg.setConfigOption('foreground', 'k')
         self.setWindowTitle(u"Решение параболических дифференциальных уравнений")
         self.resize(800,600)
         self.createControls()
         self.fillLayouts()
-        self.activeGraphModel = ExplicitGraphModel()
-        self.taskChange(1)
-        self.refreshData()
+        self.explicitGraphModel = ExplicitGraphModel()
+        self.implicitGraphModel = ImplicitGraphModel()
+        self.activeGraphModel = self.explicitGraphModel
+        self.taskChange(4)
+        self.refreshView()
         sip.setdestroyonexit(False)
 
     def taskChange(self,n):
         AppConsts.loadTask(TaskLoader.getTask(n))
         self.analogGraphModel = AnalogGraphModel(AppConsts.translate(AppConsts.resF))
-        self.refreshData()
+        self.recompute()
+        self.refreshView()
+        self.rescale()
 
 
     def createFieldAndSetters(self,module,name):
@@ -38,26 +55,21 @@ class Lab5MainWidget(QtGui.QWidget):
             var = setattr(module,name,x)
 
         if name in self.evalNames:
-            def getter(n):
+            def getter(t):
                 return eval(getattr(module,name))
         else:
             def getter():
                 var = getattr(module,name)
                 return var
         setattr(module,"set"+name.capitalize(),staticmethod(setter))
-        setattr(module,"get"+name.capitalize(),staticmethod(getter))
+        if name!='phi_0' and name!='phi_l' and name!='c':
+            setattr(module,"get"+name.capitalize(),staticmethod(getter))
 
     def addLineEdit(self,var):
-        lineEdit = QtGui.QLineEdit()
+        lineEdit = MyLineEdit()
         outer = self
-        def listener(self):
-            if not self.focus():
-                setter = getattr(AppConsts,"set"+var.capitalize())
-                lineEdit = getattr(outer,var+"LineEdit")
-                setter(lineEdit.value())
 
         lineEdit.setAccessibleName(var+'LineEdit')
-        lineEdit.textEdited.connect(listener)
         return lineEdit
 
     def createControls(self):
@@ -77,6 +89,12 @@ class Lab5MainWidget(QtGui.QWidget):
         layout.addWidget(QtGui.QLabel("du/dx+"))
         layout.addWidget(self.cLineEdit)
         return layout
+
+
+    def rescale(self):
+        self.graphWidget.getPlotItem().setXRange(AppConsts.gradX[0],AppConsts.gradX[-1])
+        self.graphWidget.getPlotItem().setYRange(min([min(x) for x in self.activeGraphModel.grid]),
+                                                 max([max(x) for x in self.activeGraphModel.grid]))
 
 
     def fillInitConditionLayout(self):
@@ -117,7 +135,7 @@ class Lab5MainWidget(QtGui.QWidget):
         self.schemeComboBox.setCurrentIndex(0)
         self.approxComboBox = QtGui.QComboBox()
         self.taskNo = QtGui.QComboBox()
-        for i in range(1,10):
+        for i in range(1,len(TaskLoader.tasks)):
             self.taskNo.addItem(str(i),100)
         self.taskNo.setCurrentIndex(0)
         self.taskNo.currentIndexChanged.connect(self.taskChange)
@@ -125,11 +143,14 @@ class Lab5MainWidget(QtGui.QWidget):
         self.t.currentIndexChanged.connect(self.replot)
         leftUpperLayout.addRow(QtGui.QLabel(u"Схема"),self.schemeComboBox)
         leftUpperLayout.addRow(QtGui.QLabel(u"Вариант"),self.taskNo)
+        leftUpperLayout.addRow(QtGui.QLabel(u"h = "),self.lNLineEdit)
         rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация"),self.approxComboBox)
         rightUpperLayout.addRow(QtGui.QLabel(u"t = "),self.t)
+        rightUpperLayout.addRow(QtGui.QLabel(u"Sigma = "),self.sigmaLineEdit)
         upperLayout.addItem(leftUpperLayout)
         upperLayout.addItem(rightUpperLayout)
         self.refreshButton = QtGui.QPushButton(u"Пересчитать")
+        self.refreshButton.clicked.connect(self.refreshConsts)
         layout.addWidget(self.refreshButton)
         layout.addItem(upperLayout)
         upperLayout.setSpacing(50)
@@ -154,10 +175,16 @@ class Lab5MainWidget(QtGui.QWidget):
         layout.setSpacing(10)
         return layout
 
+    def fillAnalogLayout(self):
+        layout = QtGui.QFormLayout()
+        layout.addRow(QtGui.QLabel('u(x,t) = '),self.resFLineEdit)
+        return layout
+
     def fillLayouts(self):
         equationLayout = self.fillEquationLayout()
         initConditionLayout = self.fillInitConditionLayout()
         sideConditionLayout = self.fillSideConditionLayout()
+        analogLayout = self.fillAnalogLayout()
         settingsLayout = self.fillSettingsLayout()
         graphsLayout = self.fillGraphsLayout()
         mainLayout = QtGui.QVBoxLayout()
@@ -165,15 +192,14 @@ class Lab5MainWidget(QtGui.QWidget):
         mainLayout.addItem(equationLayout)
         mainLayout.addItem(initConditionLayout)
         mainLayout.addItem(sideConditionLayout)
+        mainLayout.addItem(analogLayout)
         mainLayout.addItem(settingsLayout)
         mainLayout.addItem(graphsLayout)
         mainLayout.setSpacing(10)
         self.setLayout(mainLayout)
 
-    def refreshData(self):
-        AppConsts.refresh()
+    def refreshView(self):
         for lineEdit in self.findChildren(QtGui.QLineEdit):
-            print(lineEdit.accessibleName())
             getter = getattr(AppConsts,"get"+str(lineEdit.accessibleName()[:-8]).capitalize())
             # lineEdit.setText(Qt.QString(getter()))
             lineEdit.setText(str(getattr(AppConsts,str(lineEdit.accessibleName()[:-8]))))
@@ -191,6 +217,19 @@ class Lab5MainWidget(QtGui.QWidget):
         self.approxComboBox.setCurrentIndex(0)
         self.replot()
 
+    def refreshConsts(self):
+        for lineEdit in self.findChildren(QtGui.QLineEdit):
+            setattr(AppConsts,str(lineEdit.accessibleName()[:-8]),float(lineEdit.text()) if str(lineEdit.accessibleName()[:-8]) in self.floatNames else str(lineEdit.text()))
+            # print(str(lineEdit.accessibleName())+" refreshed")
+        AppConsts.refresh()
+        self.recompute()
+
+    def recompute(self):
+        self.implicitGraphModel.makeGrid()
+        self.explicitGraphModel.remakeGrid()
+        self.analogGraphModel.f = AppConsts.translate(AppConsts.resF)
+        self.replot()
+
     def replot(self,n):
         self.replot()
 
@@ -198,13 +237,16 @@ class Lab5MainWidget(QtGui.QWidget):
         t = self.t.currentIndex()
         analogT = AppConsts.gradT[self.t.currentIndex()]
         if len(self.graphWidget.getPlotItem().listDataItems())==0:
-            self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.analogGraphModel.getT(x,analogT) for x in AppConsts.gradX])
-            self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.activeGraphModel.getT(x,t) for x in range(len(AppConsts.gradX))])
+            blackPen = pg.mkPen(color = (0,0,0,255))
+            redPen = pg.mkPen(color = (255,0,0,255))
+            self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.analogGraphModel.getT(x,analogT) for x in AppConsts.gradX],pen = redPen)
+            self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.activeGraphModel.getT(x,t) for x in range(len(AppConsts.gradX))],pen = blackPen)
         self.graphWidget.getPlotItem().listDataItems()[0].setData(AppConsts.gradX,[self.analogGraphModel.getT(x,analogT) for x in AppConsts.gradX])
         self.graphWidget.getPlotItem().listDataItems()[1].setData(AppConsts.gradX,[self.activeGraphModel.getT(x,t) for x in range(len(AppConsts.gradX))])
 
         if len(self.errorWidget.getPlotItem().listDataItems())==0:
-          self.errorWidget.getPlotItem().plot(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))])
+            blackPen = pg.mkPen(color = (0,0,0,255))
+            self.errorWidget.getPlotItem().plot(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))],pen = blackPen)
         self.errorWidget.getPlotItem().listDataItems()[0].setData(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))])
 
         self.graphWidget.getPlotItem().setXRange(AppConsts.gradX[0],AppConsts.gradX[-1])

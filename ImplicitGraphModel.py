@@ -46,5 +46,5 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
             slae = self.makeSLAE(self.grid[-1])
 
             self.grid.append(solveTMA(slae))
-            if k==1:
-                print(solveTMA(slae))
+            # if k==1:
+            #     print(solveTMA(slae))

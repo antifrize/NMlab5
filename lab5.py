@@ -47,6 +47,8 @@ class Lab1MainWidget(QtGui.QWidget):
     def onSliderMove(self,n):
         self.redraw()
 
+
+
     def redraw(self):
         #print([self.activeGraphModel.getT(x,0) for x in AppConsts.gradX][0:3])
         #print([self.activeGraphModel.getT(x,AppConsts.tau) for x in AppConsts.gradX][0:3])

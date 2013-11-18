@@ -2,6 +2,7 @@ __author__ = 'Antifrize'
 
 import GridGraphModel
 from AppConstants import AppConsts
+from math import exp
 
 class ExplicitGraphModel(GridGraphModel.GridGraphModel):
     def __init__(self):
@@ -12,12 +13,15 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
 
         self.grid.append([AppConsts.getInitCondition(x) for x in AppConsts.gradX])
 
-        for t in range(1,len(AppConsts.gradT)-1):
+        for t in range(1,len(AppConsts.gradT)):
             newLine = [AppConsts.a*AppConsts.tau/AppConsts.h**2*(self.grid[-1][x-1]-2*self.grid[-1][x]+self.grid[-1][x+1])+
                                                                  AppConsts.b*AppConsts.tau/AppConsts.h*(self.grid[-1][x+1]-self.grid[-1][x])+
-                                                                                                        self.grid[-1][x] for x in range(1,AppConsts.lN)]
+                                                                                                        self.grid[-1][x]+
+                                                                AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])*AppConsts.tau for x in range(1,AppConsts.lN)]
           #  newLine = [(AppConsts.phi_0(AppConsts.gradT[t])-AppConsts.alpha*newLine[0]/AppConsts.h)/
            #            (-AppConsts.alpha/AppConsts.h * AppConsts.beta)] + newLine
+           #  if t != 1:
+                # print("shit("+str(t)+") = "+ str(AppConsts.getPhi_0(AppConsts.gradT[t])))
             newLine = [-(AppConsts.alpha/AppConsts.h)/(AppConsts.beta - AppConsts.alpha/AppConsts.h)*newLine[0]+
                        AppConsts.getPhi_0(AppConsts.gradT[t])/(AppConsts.beta - AppConsts.alpha/AppConsts.h) ]+newLine
             newLine = newLine+ [(AppConsts.gamma/AppConsts.h)/(AppConsts.delta + AppConsts.gamma/AppConsts.h)*newLine[-1]+
@@ -25,4 +29,4 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
             #print((AppConsts.gamma/AppConsts.h)/(AppConsts.delta + AppConsts.gamma/AppConsts.h),AppConsts.phi_l(AppConsts.gradT[t]))
 
             self.grid.append(newLine)
-        print self.grid[1]
+        # print self.grid[1]

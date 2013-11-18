@@ -71,29 +71,45 @@ class AppConsts:
         AppConsts.beta =  eval(task['beta'])
         AppConsts.gamma =  eval(task['gamma'])
         AppConsts.delta =  eval(task['delta'])
+        AppConsts.refresh()
 
     @staticmethod
     def refresh():
+        AppConsts.lN = int(AppConsts.lN)
+        AppConsts.tN = int(AppConsts.tN)
         AppConsts.h = (AppConsts.x_l-AppConsts.x_0)*1./AppConsts.lN
         print('h = ',AppConsts.h)
         AppConsts.tau = AppConsts.sigma * AppConsts.h**2/AppConsts.a
         print('tau = ',AppConsts.tau)
         AppConsts.tN = int((AppConsts.maxT-AppConsts.minT)/AppConsts.tau)
         AppConsts.gradX = [AppConsts.x_0+i*AppConsts.h for i in range(AppConsts.lN+1)]
-        print('gradX = ', AppConsts.gradX)
+        # print('gradX = ', AppConsts.gradX)
         AppConsts.gradT = [AppConsts.minT+i*AppConsts.tau for i in range(AppConsts.tN+1)]
-        print('gradT = ', AppConsts.gradT)
+        # print('gradT = ', AppConsts.gradT)
     @staticmethod
     def getInitCondition(x):
+        a = AppConsts.a
+        b = AppConsts.b
         return eval(AppConsts.initCondition)
 
     @staticmethod
     def getPhi_0(t):
+        a = AppConsts.a
+        b = AppConsts.b
         return eval(AppConsts.phi_0)
 
     @staticmethod
     def getPhi_l(t):
+        a = AppConsts.a
+        b = AppConsts.b
         return eval(AppConsts.phi_l)
+
+    @staticmethod
+    def getC(t,x):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.c) if len(AppConsts.c)>0 else 0
+
 
     @staticmethod
     def getAnalog(x,t):
