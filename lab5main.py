@@ -13,7 +13,7 @@ from math import *
 from AnalogGraphModel import *
 from ImplicitGraphModel import *
 from ExplicitGraphModel import *
-
+from MixedGraphModel import *
 
 a = AppConsts.a
 
@@ -37,8 +37,9 @@ class Lab5MainWidget(QtGui.QWidget):
         self.fillLayouts()
         self.explicitGraphModel = ExplicitGraphModel()
         self.implicitGraphModel = ImplicitGraphModel()
-        self.activeGraphModel = self.explicitGraphModel
-        self.taskChange(4)
+        self.mixedGraphModel = MixedGraphModel(self.explicitGraphModel,self.implicitGraphModel,0.5)
+        self.activeGraphModel = self.implicitGraphModel
+        self.taskChange(0)
         self.refreshView()
         sip.setdestroyonexit(False)
 
@@ -124,6 +125,17 @@ class Lab5MainWidget(QtGui.QWidget):
         layout.setSpacing(50)
         return layout
 
+    def schemeChangeEvent(self,n ):
+        if n==0:
+            self.activeGraphModel = self.explicitGraphModel
+        if n==1:
+            self.activeGraphModel = self.implicitGraphModel
+        if n==2:
+            self.activeGraphModel = self.mixedGraphModel
+
+        self.replot()
+
+
     def fillSettingsLayout(self):
         layout = QtGui.QVBoxLayout()
         upperLayout = QtGui.QHBoxLayout()
@@ -133,6 +145,7 @@ class Lab5MainWidget(QtGui.QWidget):
         for scheme in [u'Явная',u'Неявная',u'Смешанная']:
             self.schemeComboBox.addItem(scheme,3)
         self.schemeComboBox.setCurrentIndex(0)
+        self.schemeComboBox.currentIndexChanged.connect(self.schemeChangeEvent)
         self.approxComboBox = QtGui.QComboBox()
         self.taskNo = QtGui.QComboBox()
         for i in range(1,len(TaskLoader.tasks)):
