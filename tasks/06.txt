@@ -1,0 +1,13 @@
+[task]
+a = 1
+b = 0
+c = cos(x)*(cos(t)+sin(t))
+alpha = 0
+beta = 1
+gamma = 1
+delta = 0
+phi_0 = sin(t)
+phi_l = -sin(t)
+initCondition = 0
+resF = sin(t)*cos(x)
+x_l = pi/2
