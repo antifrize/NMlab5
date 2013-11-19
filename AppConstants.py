@@ -105,7 +105,7 @@ class AppConsts:
         return eval(AppConsts.phi_l)
 
     @staticmethod
-    def getC(t,x):
+    def getC(x,t):
         a = AppConsts.a
         b = AppConsts.b
         return eval(AppConsts.c) if len(AppConsts.c)>0 else 0
