@@ -21,7 +21,7 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
           #  newLine = [(AppConsts.phi_0(AppConsts.gradT[t])-AppConsts.alpha*newLine[0]/AppConsts.h)/
            #            (-AppConsts.alpha/AppConsts.h * AppConsts.beta)] + newLine
             x = int(len(AppConsts.gradX)/2)
-            print("t = "+str(AppConsts.gradT[t])+", x = "+str(AppConsts.gradX[x])+"c="+AppConsts.c+", "+str(AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])))
+            # print("t = "+str(AppConsts.gradT[t])+", x = "+str(AppConsts.gradX[x])+"c="+AppConsts.c+", "+str(AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])))
             newLine = [-(AppConsts.alpha/AppConsts.h)/(AppConsts.beta - AppConsts.alpha/AppConsts.h)*newLine[0]+
                        AppConsts.getPhi_0(AppConsts.gradT[t])/(AppConsts.beta - AppConsts.alpha/AppConsts.h) ]+newLine
             newLine = newLine+ [(AppConsts.gamma/AppConsts.h)/(AppConsts.delta + AppConsts.gamma/AppConsts.h)*newLine[-1]+
