@@ -17,7 +17,7 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
             newLine = [AppConsts.a*AppConsts.tau/AppConsts.h**2*(self.grid[-1][x-1]-2*self.grid[-1][x]+self.grid[-1][x+1])+
                                                                  AppConsts.b*AppConsts.tau/AppConsts.h*(self.grid[-1][x+1]-self.grid[-1][x])+
                                                                                                         self.grid[-1][x]+
-                                                                AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])*AppConsts.tau for x in range(1,AppConsts.lN)]
+                                                                AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])/AppConsts.tau for x in range(1,AppConsts.lN)]
           #  newLine = [(AppConsts.phi_0(AppConsts.gradT[t])-AppConsts.alpha*newLine[0]/AppConsts.h)/
            #            (-AppConsts.alpha/AppConsts.h * AppConsts.beta)] + newLine
            #  if t != 1:
