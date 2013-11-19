@@ -1,35 +1,43 @@
 __author__ = 'Antifrize'
 
-import math
-
-class Scheme:
-    IMPLICIT = 0
-    EXPLICIT = 1
-    MIXED = 2
+from math import *
 
 
+class AppConsts:
+    class Scheme:
+        IMPLICIT = 0
+        EXPLICIT = 1
+        MIXED = 2
 
-a = 1
-b = 0
-c = 0
-lN = 15
-tN = 40
-sigma = 0.5
-q = 0
-x_0 = 0
-x_l = math.pi
-minT = 0
-maxT = 5
-alpha = 1
-beta = -1
-gamma = 1
-delta = -1
-scheme = Scheme.EXPLICIT
-h = tau = tN = gradX = gradT = 0
+    a = 0.01
+    b = 0
+    c = ""
 
-def refresh():
-    global h, tau, tN, gradX, gradT, lN, a, b
-    h = (x_l-x_0)/lN
+    lN = 20
+    tN = 40
+
+    sigma = 0.5
+    q = 0
+
+    x_0 = 0
+    x_l = 1
+
+    minT = 0
+    maxT = 5.
+
+    alpha = 1
+    beta = -1
+    gamma = 1
+    delta = -1
+
+    scheme = Scheme.EXPLICIT
+
+    initCondition = "sin(2*pi*x)"
+    phi_0 = "0"
+    phi_l = "0"
+    resF = "exp(-4*pi**2*AppConsts.a*t)*sin(2*pi*x)"
+
+    h = (x_l-x_0)*1./lN
     print('h = ',h)
     tau = sigma * h**2/a
     print('tau = ',tau)
@@ -39,73 +47,80 @@ def refresh():
     gradT = [minT+i*tau for i in range(tN+1)]
     print('gradT = ', gradT)
 
+    @staticmethod
+    def getResF(x,t):
+        return(eval(AppConsts.resF))
 
-def initCondition(x):
-    return math.cos(x)
+    @staticmethod
+    def translate(string):
+        for s in ['a','b']:
+            string = string.replace(s,'AppConsts.'+s)
+        return string
 
-def phi_0(t):
-    return -math.exp(-a*t)*(math.cos(b*t)+math.sin(b*t))
+    @staticmethod
+    def loadTask(task):
+        AppConsts.a = eval(task['a'])
+        AppConsts.b = eval(task['b'])
+        AppConsts.c = task['c']
+        AppConsts.x_l = eval(task['x_l'])
+        AppConsts.initCondition = task['initCondition']
+        AppConsts.phi_0 = task['phi_0']
+        AppConsts.phi_l = task['phi_l']
+        AppConsts.resF = task['resF']
+        AppConsts.alpha = eval(task['alpha'])
+        AppConsts.beta =  eval(task['beta'])
+        AppConsts.gamma =  eval(task['gamma'])
+        AppConsts.delta =  eval(task['delta'])
+        AppConsts.refresh()
 
-def phi_l(t):
-    return math.exp(-a*t)*(math.cos(b*t)+math.sin(b*t))
+    @staticmethod
+    def refresh():
+        AppConsts.lN = int(AppConsts.lN)
+        AppConsts.tN = int(AppConsts.tN)
+        AppConsts.h = (AppConsts.x_l-AppConsts.x_0)*1./AppConsts.lN
+        print('h = ',AppConsts.h)
+        AppConsts.tau = AppConsts.sigma * AppConsts.h**2/AppConsts.a
+        print('tau = ',AppConsts.tau)
+        AppConsts.tN = int((AppConsts.maxT-AppConsts.minT)/AppConsts.tau)
+        AppConsts.gradX = [AppConsts.x_0+i*AppConsts.h for i in range(AppConsts.lN+1)]
+        # print('gradX = ', AppConsts.gradX)
+        AppConsts.gradT = [AppConsts.minT+i*AppConsts.tau for i in range(AppConsts.tN+1)]
+        # print('gradT = ', AppConsts.gradT)
+    @staticmethod
+    def getInitCondition(x):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.initCondition)
+
+    @staticmethod
+    def getPhi_0(t):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.phi_0)
+
+    @staticmethod
+    def getPhi_l(t):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.phi_l)
+
+    @staticmethod
+    def getC(t,x):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.c) if len(AppConsts.c)>0 else 0
 
 
-def setA(a_):
-    global a
-    a = int(a_)
+    @staticmethod
+    def getAnalog(x,t):
+        return eval(AppConsts.resF)
 
+    @staticmethod
+    def setApprox(n):
+        pass
 
-def setB(b_):
-    global b
-    b = float(b_)
+    @staticmethod
+    def setScheme(schemeN):
+        global scheme
+        scheme = schemeN
 
-def setC(c_):
-    global c
-    c = c_
-
-def setAlpha(alpha_):
-    global alpha
-    alpha = alpha_
-
-def setBeta(beta_):
-    global beta
-    beta = beta_
-
-def setGamma(gamma_):
-    global gamma
-    gamma = gamma_
-
-def setDelta(delta_):
-    global delta
-    delta = delta_
-
-def setLn(ln_):
-    global lN
-    lN = ln_
-
-
-
-def setQ(q_):
-    global q
-    q = float(q_)
-
-def setSigma(sigma_):
-    global sigma
-    sigma = float(sigma_)
-
-def setH(h_):
-    global h
-    h = float(h_)
-
-def setLN(lN_):
-    global lN
-    lN = int(lN_)
-
-def setApprox(n):
-    pass
-
-def setScheme(schemeN):
-    global scheme
-    scheme = schemeN
-
-refresh()

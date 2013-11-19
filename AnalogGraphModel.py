@@ -1,6 +1,9 @@
 __author__ = 'vmakarenko'
 
 from GraphModel import *
+from math import *
+from AppConstants import *
+
 
 
 class AnalogGraphModel(GraphModel):
@@ -9,4 +12,4 @@ class AnalogGraphModel(GraphModel):
         self.f = f
 
     def getT(self,x,t):
-        return self.f(x,t)
+        return eval(self.f)

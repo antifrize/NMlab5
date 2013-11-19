@@ -1,5 +1,6 @@
 __author__ = 'Antifrize'
-import AppConstants as AppConsts
+
+from AppConstants import AppConsts
 import GridGraphModel
 from TMA import *
 
@@ -28,24 +29,22 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
         # slae[-1][-1] = AppConsts.phi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)
 
         slae.append([0,AppConsts.beta-AppConsts.alpha/AppConsts.h,AppConsts.alpha/AppConsts.h,
-                     AppConsts.phi_0(AppConsts.gradT[len(self.grid)+1])/(AppConsts.beta-AppConsts.alpha/AppConsts.h)])
+                     AppConsts.getPhi_0(AppConsts.gradT[len(self.grid)+1])/(AppConsts.beta-AppConsts.alpha/AppConsts.h)])
         for u in line[1:-1]:
             slae.append([AppConsts.a/AppConsts.h**2,
                          -(1+2*AppConsts.a*AppConsts.tau/AppConsts.h**2+AppConsts.b*AppConsts.tau/AppConsts.h)
                             ,AppConsts.a/AppConsts.h**2,u])
         slae.append([-AppConsts.gamma/AppConsts.h, AppConsts.delta+AppConsts.gamma/AppConsts.h, 0
-            ,AppConsts.phi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)])
+            ,AppConsts.getPhi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)])
 
         return slae
 
     def makeGrid(self):
         self.grid=[]
-        self.grid.append([AppConsts.initCondition(x) for x in AppConsts.gradX])
-        print(self.grid)
+        self.grid.append([AppConsts.getInitCondition(x) for x in AppConsts.gradX])
         for k in range(1,len(AppConsts.gradT)-1):
             slae = self.makeSLAE(self.grid[-1])
 
             self.grid.append(solveTMA(slae))
-            if k==1:
-                pass
-                #print(solveTMA(slae))
+            # if k==1:
+            #     print(solveTMA(slae))
