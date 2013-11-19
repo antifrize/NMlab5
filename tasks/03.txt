@@ -1,0 +1,13 @@
+[task]
+a = 1
+b = 0
+c = 0
+alpha = 0
+beta = 1
+gamma = 0
+delta = 1
+phi_0 = exp(-a*t)
+phi_l = -exp(-a*t)
+initCondition = cos(x)
+resF = exp(-a*t)*cos(x)
+x_l = pi
