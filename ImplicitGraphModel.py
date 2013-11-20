@@ -31,9 +31,9 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
         slae.append([0,AppConsts.beta-AppConsts.alpha/AppConsts.h,AppConsts.alpha/AppConsts.h,
                      AppConsts.getPhi_0(AppConsts.gradT[len(self.grid)+1])/(AppConsts.beta-AppConsts.alpha/AppConsts.h)])
         for u in line[1:-1]:
-            slae.append([AppConsts.a/AppConsts.h**2,
+            slae.append([AppConsts.a/AppConsts.h**2*AppConsts.tau,
                          -(1+2*AppConsts.a*AppConsts.tau/AppConsts.h**2+AppConsts.b*AppConsts.tau/AppConsts.h)
-                            ,AppConsts.a/AppConsts.h**2,u])
+                            ,AppConsts.a*AppConsts.tau/AppConsts.h**2,-u])
         slae.append([-AppConsts.gamma/AppConsts.h, AppConsts.delta+AppConsts.gamma/AppConsts.h, 0
             ,AppConsts.getPhi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)])
 
@@ -44,7 +44,8 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
         self.grid.append([AppConsts.getInitCondition(x) for x in AppConsts.gradX])
         for k in range(1,len(AppConsts.gradT)-1):
             slae = self.makeSLAE(self.grid[-1])
-
             self.grid.append(solveTMA(slae))
-            if k==100:
-                 print(solveTMA(slae))
+            #if k==1:
+            #    print('solutions = ')
+            #    print(solveTMA(slae))
+            #    print(list(solve1(slae)))
