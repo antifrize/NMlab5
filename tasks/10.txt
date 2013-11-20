@@ -1,13 +1,13 @@
 [task]
-a = 0.01
-b = 0
-c = 0
-alpha = 0
+a = 1
+b = 2
+c = -1
+alpha = 1
 beta = 1
-gamma = 0
+gamma = 1
 delta = 1
-phi_0 = 0
-phi_l = 0
-initCondition = sin(2*pi*x)
-resF = exp(-4*pi**2*a*t)*sin(2*pi*x)
-x_l = 1
+phi_0 = exp((c-a)*t)*(cos(b*t)+sin(b*t))
+phi_l = -exp((c-a)*t)*(cos(b*t)+sin(b*t))
+initCondition = cos(x)
+resF = exp((c-a)*t)*cos(x+b*t)
+x_l = pi

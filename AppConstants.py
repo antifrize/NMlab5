@@ -13,7 +13,7 @@ class AppConsts:
     b = 0
     c = ""
 
-    lN = 20
+    lN = 5
     tN = 40
 
     sigma = 0.5
@@ -90,18 +90,21 @@ class AppConsts:
     def getInitCondition(x):
         a = AppConsts.a
         b = AppConsts.b
+        c = AppConsts.getC(x,0)
         return eval(AppConsts.initCondition)
 
     @staticmethod
     def getPhi_0(t):
         a = AppConsts.a
         b = AppConsts.b
+        c = AppConsts.getC(AppConsts.x_l,t)
         return eval(AppConsts.phi_0)
 
     @staticmethod
     def getPhi_l(t):
         a = AppConsts.a
         b = AppConsts.b
+        c = AppConsts.getC(0,t)
         return eval(AppConsts.phi_l)
 
     @staticmethod

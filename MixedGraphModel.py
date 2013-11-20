@@ -8,9 +8,8 @@ class MixedGraphModel(GridGraphModel.GridGraphModel):
         GridGraphModel.GridGraphModel.__init__(self)
 
     def makeGrid(self,explicitGM,implicitGM,Q):
-        # print(explicitGM.[1])
-        # print(implicitGM[1])
-        self.grid = [[Q*xE+(1-Q)*xI for xE,xI in zip(lineExpl,lineImpl)] for lineExpl, lineImpl in zip(explicitGM.grid,implicitGM.grid)]
-
-        print self.grid[1]
+        self.grid = []
+        for t in range(len(AppConsts.gradT)-1):
+            self.grid.append([Q*explicitGM.getT(x,t)
+                    +(1-Q)*implicitGM.getT(x,t) for x in range(len(AppConsts.gradX))])
 

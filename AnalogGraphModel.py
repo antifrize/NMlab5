@@ -12,4 +12,5 @@ class AnalogGraphModel(GraphModel):
         self.f = f
 
     def getT(self,x,t):
+        c = AppConsts.getC(x,t)
         return eval(self.f)

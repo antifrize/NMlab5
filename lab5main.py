@@ -38,8 +38,8 @@ class Lab5MainWidget(QtGui.QWidget):
         self.explicitGraphModel = ExplicitGraphModel()
         self.implicitGraphModel = ImplicitGraphModel()
         self.mixedGraphModel = MixedGraphModel(self.explicitGraphModel,self.implicitGraphModel,0.5)
-        self.activeGraphModel = self.implicitGraphModel
-        self.taskChange(0)
+        self.activeGraphModel = self.explicitGraphModel
+        self.taskChange(4)
         self.refreshView()
         sip.setdestroyonexit(False)
 
