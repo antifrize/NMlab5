@@ -240,6 +240,7 @@ class Lab5MainWidget(QtGui.QWidget):
     def recompute(self):
         self.implicitGraphModel.makeGrid()
         self.explicitGraphModel.remakeGrid()
+        self.mixedGraphModel.makeGrid(self.explicitGraphModel,self.implicitGraphModel,0.5)
         self.analogGraphModel.f = AppConsts.translate(AppConsts.resF)
         self.replot()
 

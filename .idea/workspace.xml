@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0673851e-bd36-499f-b6d7-ffef5781061e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExplicitGraphModel.py" afterPath="$PROJECT_DIR$/ExplicitGraphModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImplicitGraphModel.py" afterPath="$PROJECT_DIR$/ImplicitGraphModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MixedGraphModel.py" afterPath="$PROJECT_DIR$/MixedGraphModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TMA.py" afterPath="$PROJECT_DIR$/TMA.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5main.py" afterPath="$PROJECT_DIR$/lab5main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -30,22 +27,29 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lab5main.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="lab5main.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lab5main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="277" column="8" selection-start="0" selection-end="11293" vertical-scroll-proportion="9.186969" vertical-offset="1466" max-vertical-offset="4811">
+            <state line="242" column="86" selection-start="9508" selection-end="9508" vertical-scroll-proportion="-5.1538463" vertical-offset="3980" max-vertical-offset="4828">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MixedGraphModel.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="MixedGraphModel.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/MixedGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="120" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-              <folding>
-                <element signature="e#27#48#0" expanded="true" />
-              </folding>
+            <state line="10" column="22" selection-start="303" selection-end="303" vertical-scroll-proportion="0.39030612" vertical-offset="0" max-vertical-offset="392">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GridGraphModel.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="8" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -53,7 +57,7 @@
       <file leaf-file-name="AnalogGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AnalogGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="4" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="306">
+            <state line="13" column="4" selection-start="221" selection-end="221" vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="340">
               <folding />
             </state>
           </provider>
@@ -62,7 +66,7 @@
       <file leaf-file-name="Solver.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Solver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="221">
+            <state line="4" column="0" selection-start="41" selection-end="41" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="221">
               <folding />
             </state>
           </provider>
@@ -71,9 +75,8 @@
       <file leaf-file-name="TMA.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TMA.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="12" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="918">
+            <state line="17" column="12" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="289" max-vertical-offset="918">
               <folding>
-                <element signature="e#27#46#0" expanded="true" />
                 <marker date="1384851931335" expanded="true" signature="88:429" placeholder="..." />
                 <marker date="1384851931335" expanded="true" signature="453:545" placeholder="..." />
               </folding>
@@ -84,7 +87,7 @@
       <file leaf-file-name="TaskLoader.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/TaskLoader.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="15" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="663">
+            <state line="15" column="0" selection-start="298" selection-end="298" vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="680">
               <folding />
             </state>
           </provider>
@@ -93,7 +96,7 @@
       <file leaf-file-name="ExplicitGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="72" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-4.423077" vertical-offset="242" max-vertical-offset="595">
+            <state line="23" column="72" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="629">
               <folding />
             </state>
           </provider>
@@ -102,7 +105,7 @@
       <file leaf-file-name="ImplicitGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ImplicitGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="9" selection-start="1735" selection-end="1736" vertical-scroll-proportion="-6.8846154" vertical-offset="399" max-vertical-offset="918">
+            <state line="36" column="9" selection-start="1735" selection-end="1736" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="952">
               <folding />
             </state>
           </provider>
@@ -111,7 +114,7 @@
       <file leaf-file-name="GraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="6" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="238">
+            <state line="2" column="6" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0" vertical-offset="34" max-vertical-offset="238">
               <folding />
             </state>
           </provider>
@@ -144,8 +147,8 @@
         <option value="$PROJECT_DIR$/ExplicitGraphModel.py" />
         <option value="$PROJECT_DIR$/TMA.py" />
         <option value="$PROJECT_DIR$/ImplicitGraphModel.py" />
-        <option value="$PROJECT_DIR$/MixedGraphModel.py" />
         <option value="$PROJECT_DIR$/lab5main.py" />
+        <option value="$PROJECT_DIR$/MixedGraphModel.py" />
       </list>
     </option>
   </component>
@@ -181,7 +184,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -200,47 +202,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NMlab5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NMlab5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NMlab5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="NMlab5" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Pics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="settings.github" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -499,19 +474,22 @@
       <created>1384867664019</created>
       <updated>1384867664019</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="explicit and implicit works">
+      <created>1384868274068</created>
+      <updated>1384868274068</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="270" y="206" width="1320" height="784" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26226994" sideWeight="0.6733129" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26226994" sideWeight="0.6733129" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39712918" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -522,6 +500,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -561,18 +540,12 @@
     </entry>
     <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/graphicsItems/GraphicsWidget.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="46" column="0" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0">
-          <folding />
-        </state>
+        <state line="46" column="0" selection-start="1587" selection-end="1587" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="0" selection-start="1548" selection-end="1548" vertical-scroll-proportion="0.43452382" vertical-offset="0" max-vertical-offset="0">
-          <folding>
-            <element signature="e#24#39#0" expanded="false" />
-          </folding>
-        </state>
+        <state line="49" column="0" selection-start="1548" selection-end="1548" vertical-scroll-proportion="0.43452382" vertical-offset="0" max-vertical-offset="0" />
       </provider>
     </entry>
     <entry file="file://C:/Python27/Lib/site-packages/pyqtgraph/functions.py">
@@ -605,7 +578,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="17" column="12" selection-start="429" selection-end="429" vertical-scroll-proportion="0.0" vertical-offset="204" max-vertical-offset="918">
           <folding>
-            <element signature="e#27#46#0" expanded="true" />
             <marker date="1384851931335" expanded="true" signature="88:429" placeholder="..." />
             <marker date="1384851931335" expanded="true" signature="453:545" placeholder="..." />
           </folding>
@@ -621,21 +593,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="72" selection-start="1253" selection-end="1253" vertical-scroll-proportion="-4.423077" vertical-offset="242" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="35" selection-start="128" selection-end="128" vertical-scroll-proportion="0.08928572" vertical-offset="50" max-vertical-offset="493">
+        <state line="23" column="72" selection-start="1253" selection-end="1253" vertical-scroll-proportion="0.0" vertical-offset="391" max-vertical-offset="629">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ImplicitGraphModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="9" selection-start="1735" selection-end="1736" vertical-scroll-proportion="-6.8846154" vertical-offset="399" max-vertical-offset="918">
+        <state line="36" column="9" selection-start="1735" selection-end="1736" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="952">
           <folding />
         </state>
       </provider>
@@ -647,18 +612,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/MixedGraphModel.py">
+    <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="120" selection-start="505" selection-end="505" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="340">
-          <folding>
-            <element signature="e#27#48#0" expanded="true" />
-          </folding>
+        <state line="9" column="8" selection-start="160" selection-end="160" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="493">
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lab5main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="277" column="8" selection-start="0" selection-end="11293" vertical-scroll-proportion="9.186969" vertical-offset="1466" max-vertical-offset="4811">
+        <state line="242" column="86" selection-start="9508" selection-end="9508" vertical-scroll-proportion="-5.1538463" vertical-offset="3980" max-vertical-offset="4828">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/MixedGraphModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="22" selection-start="303" selection-end="303" vertical-scroll-proportion="0.39030612" vertical-offset="0" max-vertical-offset="392">
           <folding />
         </state>
       </provider>
