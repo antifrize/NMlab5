@@ -33,7 +33,7 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
         for u in line[1:-1]:
             slae.append([AppConsts.a/AppConsts.h**2*AppConsts.tau,
                          -(1+2*AppConsts.a*AppConsts.tau/AppConsts.h**2+AppConsts.b*AppConsts.tau/AppConsts.h)
-                            ,AppConsts.a*AppConsts.tau/AppConsts.h**2,-u])
+                            ,AppConsts.a*AppConsts.tau/AppConsts.h**2,u])
         slae.append([-AppConsts.gamma/AppConsts.h, AppConsts.delta+AppConsts.gamma/AppConsts.h, 0
             ,AppConsts.getPhi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)])
 

@@ -240,6 +240,7 @@ class Lab5MainWidget(QtGui.QWidget):
     def recompute(self):
         self.implicitGraphModel.makeGrid()
         self.explicitGraphModel.remakeGrid()
+        self.mixedGraphModel.makeGrid(self.explicitGraphModel,self.implicitGraphModel,0.5)
         self.analogGraphModel.f = AppConsts.translate(AppConsts.resF)
         self.replot()
 
@@ -261,7 +262,6 @@ class Lab5MainWidget(QtGui.QWidget):
             blackPen = pg.mkPen(color = (0,0,0,255))
             self.errorWidget.getPlotItem().plot(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))],pen = blackPen)
         self.errorWidget.getPlotItem().listDataItems()[0].setData(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))])
-
         self.graphWidget.getPlotItem().setXRange(AppConsts.gradX[0],AppConsts.gradX[-1])
         self.update()
 
