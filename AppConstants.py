@@ -13,7 +13,7 @@ class AppConsts:
     b = 0
     c = ""
 
-    lN = 20
+    lN = 5
     tN = 40
 
     sigma = 0.5
