@@ -9,21 +9,22 @@ class AppConsts:
         EXPLICIT = 1
         MIXED = 2
 
-    a = 0.01
+    a = 1
     b = 0
     c = ""
+    d = ""
 
-    lN = 5
+    lN = 15
     tN = 40
 
     sigma = 0.5
-    q = 0
+    Q = 0.5
 
     x_0 = 0
     x_l = 1
 
     minT = 0
-    maxT = 5.
+    maxT = 1.
 
     alpha = 1
     beta = -1
@@ -62,6 +63,7 @@ class AppConsts:
         AppConsts.a = eval(task['a'])
         AppConsts.b = eval(task['b'])
         AppConsts.c = task['c']
+        AppConsts.d = task['d']
         AppConsts.x_l = eval(task['x_l'])
         AppConsts.initCondition = task['initCondition']
         AppConsts.phi_0 = task['phi_0']
@@ -113,6 +115,11 @@ class AppConsts:
         b = AppConsts.b
         return eval(AppConsts.c) if len(AppConsts.c)>0 else 0
 
+    @staticmethod
+    def getD(x,t):
+        a = AppConsts.a
+        b = AppConsts.b
+        return eval(AppConsts.d) if len(AppConsts.d)>0 else 0
 
     @staticmethod
     def getAnalog(x,t):

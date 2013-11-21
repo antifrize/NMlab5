@@ -25,7 +25,7 @@ class MyLineEdit(QtGui.QLineEdit):
         pass
 class Lab5MainWidget(QtGui.QWidget):
     floatNames =("a","b","Q","alpha","beta","delta","gamma","lN","sigma")
-    evalNames = ("c","phi_0","phi_l","initCondition","resF")
+    evalNames = ("c","d","phi_0","phi_l","initCondition","resF")
 
     def __init__(self,parent=None):
         QtGui.QWidget.__init__(self,parent)
@@ -37,11 +37,13 @@ class Lab5MainWidget(QtGui.QWidget):
         self.fillLayouts()
         self.explicitGraphModel = ExplicitGraphModel()
         self.implicitGraphModel = ImplicitGraphModel()
-        self.mixedGraphModel = MixedGraphModel(self.explicitGraphModel,self.implicitGraphModel,0.5)
+        self.mixedGraphModel = MixedGraphModel(self.explicitGraphModel,self.implicitGraphModel,AppConsts.Q)
         self.activeGraphModel = self.explicitGraphModel
-        self.taskChange(4)
+        self.taskChange(0)
         self.refreshView()
+        self.approxComboBox.currentIndexChanged.connect(self.recompute)
         sip.setdestroyonexit(False)
+
 
     def taskChange(self,n):
         AppConsts.loadTask(TaskLoader.getTask(n))
@@ -63,7 +65,7 @@ class Lab5MainWidget(QtGui.QWidget):
                 var = getattr(module,name)
                 return var
         setattr(module,"set"+name.capitalize(),staticmethod(setter))
-        if name!='phi_0' and name!='phi_l' and name!='c':
+        if name!='phi_0' and name!='phi_l' and name!='c' and name!='d':
             setattr(module,"get"+name.capitalize(),staticmethod(getter))
 
     def addLineEdit(self,var):
@@ -89,6 +91,8 @@ class Lab5MainWidget(QtGui.QWidget):
         layout.addWidget(self.bLineEdit)
         layout.addWidget(QtGui.QLabel("du/dx+"))
         layout.addWidget(self.cLineEdit)
+        layout.addWidget(QtGui.QLabel("u+"))
+        layout.addWidget(self.dLineEdit)
         return layout
 
 
@@ -148,7 +152,7 @@ class Lab5MainWidget(QtGui.QWidget):
         self.schemeComboBox.currentIndexChanged.connect(self.schemeChangeEvent)
         self.approxComboBox = QtGui.QComboBox()
         self.taskNo = QtGui.QComboBox()
-        for i in range(1,len(TaskLoader.tasks)):
+        for i in range(1,len(TaskLoader.tasks)+1):
             self.taskNo.addItem(str(i),100)
         self.taskNo.setCurrentIndex(0)
         self.taskNo.currentIndexChanged.connect(self.taskChange)
@@ -157,6 +161,7 @@ class Lab5MainWidget(QtGui.QWidget):
         leftUpperLayout.addRow(QtGui.QLabel(u"Схема"),self.schemeComboBox)
         leftUpperLayout.addRow(QtGui.QLabel(u"Вариант"),self.taskNo)
         leftUpperLayout.addRow(QtGui.QLabel(u"h = "),self.lNLineEdit)
+        leftUpperLayout.addRow(QtGui.QLabel(u"Q = "),self.QLineEdit)
         rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация"),self.approxComboBox)
         rightUpperLayout.addRow(QtGui.QLabel(u"t = "),self.t)
         rightUpperLayout.addRow(QtGui.QLabel(u"Sigma = "),self.sigmaLineEdit)
@@ -239,8 +244,13 @@ class Lab5MainWidget(QtGui.QWidget):
 
     def recompute(self):
         self.implicitGraphModel.makeGrid()
-        self.explicitGraphModel.remakeGrid()
-        self.mixedGraphModel.makeGrid(self.explicitGraphModel,self.implicitGraphModel,0.5)
+        if not self.implicitGraphModel.isDiag():
+            alert = QtGui.QMessageBox()
+            alert.setWindowTitle(u"Нарушено диагональное преобладание в неявном методе")
+            alert.setText(u"Метод прогонки неприменим!")
+            alert.exec_()
+        self.explicitGraphModel.remakeGrid(self.approxComboBox.currentIndex())
+        self.mixedGraphModel.makeGrid(self.explicitGraphModel,self.implicitGraphModel,AppConsts.Q)
         self.analogGraphModel.f = AppConsts.translate(AppConsts.resF)
         self.replot()
 
