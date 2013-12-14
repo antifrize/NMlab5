@@ -18,13 +18,15 @@ from MixedGraphModel import *
 a = AppConsts.a
 
 class MyLineEdit(QtGui.QLineEdit):
+
     def focusOutEvent(self, QFocusEvent):
         # var = self.accessibleName()[:-8]
         # setter = getattr(AppConsts,"set"+str(var).capitalize())
         # setter(str(self.text()))
         pass
 class Lab5MainWidget(QtGui.QWidget):
-    floatNames =("a","b","Q","alpha","beta","delta","gamma","lN","sigma")
+    recomputeFlag = True
+    floatNames =("a","b","Q","alpha","beta","delta","gamma","lN","tN","sigma")
     evalNames = ("c","d","phi_0","phi_l","initCondition","resF")
 
     def __init__(self,parent=None):
@@ -152,7 +154,7 @@ class Lab5MainWidget(QtGui.QWidget):
         self.schemeComboBox.currentIndexChanged.connect(self.schemeChangeEvent)
         self.approxComboBox = QtGui.QComboBox()
         self.taskNo = QtGui.QComboBox()
-        for i in range(1,len(TaskLoader.tasks)+1):
+        for i in range(1,len(TaskLoader.tasks)-1):
             self.taskNo.addItem(str(i),100)
         self.taskNo.setCurrentIndex(0)
         self.taskNo.currentIndexChanged.connect(self.taskChange)
@@ -160,11 +162,16 @@ class Lab5MainWidget(QtGui.QWidget):
         self.t.currentIndexChanged.connect(self.replot)
         leftUpperLayout.addRow(QtGui.QLabel(u"Схема"),self.schemeComboBox)
         leftUpperLayout.addRow(QtGui.QLabel(u"Вариант"),self.taskNo)
-        leftUpperLayout.addRow(QtGui.QLabel(u"h = "),self.lNLineEdit)
+        leftUpperLayout.addRow(QtGui.QLabel(u"lN = "),self.lNLineEdit)
         leftUpperLayout.addRow(QtGui.QLabel(u"Q = "),self.QLineEdit)
+        self.tauLbl = QtGui.QLabel()
+        leftUpperLayout.addRow(QtGui.QLabel(u"tau = "),self.tauLbl)
         rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация"),self.approxComboBox)
         rightUpperLayout.addRow(QtGui.QLabel(u"t = "),self.t)
+        rightUpperLayout.addRow(QtGui.QLabel(u"tN = "),self.tNLineEdit)
         rightUpperLayout.addRow(QtGui.QLabel(u"Sigma = "),self.sigmaLineEdit)
+        self.hLbl = QtGui.QLabel()
+        rightUpperLayout.addRow(QtGui.QLabel(u"h = "),self.hLbl)
         upperLayout.addItem(leftUpperLayout)
         upperLayout.addItem(rightUpperLayout)
         self.refreshButton = QtGui.QPushButton(u"Пересчитать")
@@ -221,18 +228,30 @@ class Lab5MainWidget(QtGui.QWidget):
             getter = getattr(AppConsts,"get"+str(lineEdit.accessibleName()[:-8]).capitalize())
             # lineEdit.setText(Qt.QString(getter()))
             lineEdit.setText(str(getattr(AppConsts,str(lineEdit.accessibleName()[:-8]))))
-
+        self.hLbl.setText(Qt.QString(str(AppConsts.h)))
+        self.tauLbl.setText(Qt.QString(str(AppConsts.tau)))
+        i = self.t.currentIndex()
         self.t.clear()
         for t in AppConsts.gradT:
             self.t.insertItem(100000000,str(t))
-
+        self.t.setCurrentIndex(i)
+        if self.t.currentIndex()<0:
+            self.t.setCurrentIndex(0)
+        self.recomputeFlag = False
+        i = self.approxComboBox.currentIndex()
         self.approxComboBox.clear()
         if AppConsts.alpha == 0 and AppConsts.gamma ==0:
             self.approxComboBox.addItem(u'двухточечная с первым порядком',0)
+            pass
         else:
             for approx in [u'двухточечная с первым порядком',u'двухточечная со вторым порядком',u'трехточечная']:
+                pass
                 self.approxComboBox.addItem(approx,3)
-        self.approxComboBox.setCurrentIndex(0)
+        self.approxComboBox.setCurrentIndex(i)
+        if self.approxComboBox.currentIndex()<0:
+            self.approxComboBox.setCurrentIndex(0)
+        self.recomputeFlag = True
+        self.recompute()
         self.replot()
 
     def refreshConsts(self):
@@ -240,10 +259,15 @@ class Lab5MainWidget(QtGui.QWidget):
             setattr(AppConsts,str(lineEdit.accessibleName()[:-8]),float(lineEdit.text()) if str(lineEdit.accessibleName()[:-8]) in self.floatNames else str(lineEdit.text()))
             # print(str(lineEdit.accessibleName())+" refreshed")
         AppConsts.refresh()
+        self.recomputeFlag = False
+        self.refreshView()
+        self.recomputeFlag = True
         self.recompute()
 
     def recompute(self):
-        self.implicitGraphModel.makeGrid()
+        if not self.recomputeFlag:
+            return
+        self.implicitGraphModel.makeGrid(self.approxComboBox.currentIndex())
         if not self.implicitGraphModel.isDiag():
             alert = QtGui.QMessageBox()
             alert.setWindowTitle(u"Нарушено диагональное преобладание в неявном методе")
@@ -258,6 +282,8 @@ class Lab5MainWidget(QtGui.QWidget):
         self.replot()
 
     def replot(self):
+        if not self.recomputeFlag:
+            return
         t = self.t.currentIndex()
         analogT = AppConsts.gradT[self.t.currentIndex()]
         if len(self.graphWidget.getPlotItem().listDataItems())==0:
@@ -265,6 +291,7 @@ class Lab5MainWidget(QtGui.QWidget):
             redPen = pg.mkPen(color = (255,0,0,255))
             self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.analogGraphModel.getT(x,analogT) for x in AppConsts.gradX],pen = redPen)
             self.graphWidget.getPlotItem().plot(AppConsts.gradX,[self.activeGraphModel.getT(x,t) for x in range(len(AppConsts.gradX))],pen = blackPen)
+        pass
         self.graphWidget.getPlotItem().listDataItems()[0].setData(AppConsts.gradX,[self.analogGraphModel.getT(x,analogT) for x in AppConsts.gradX])
         self.graphWidget.getPlotItem().listDataItems()[1].setData(AppConsts.gradX,[self.activeGraphModel.getT(x,t) for x in range(len(AppConsts.gradX))])
 
@@ -273,6 +300,7 @@ class Lab5MainWidget(QtGui.QWidget):
             self.errorWidget.getPlotItem().plot(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))],pen = blackPen)
         self.errorWidget.getPlotItem().listDataItems()[0].setData(AppConsts.gradX,[fabs(self.analogGraphModel.getT(AppConsts.gradX[x],AppConsts.gradT[t])-self.activeGraphModel.getT(x,t)) for x in range(len(AppConsts.gradX))])
         self.graphWidget.getPlotItem().setXRange(AppConsts.gradX[0],AppConsts.gradX[-1])
+        self.rescale()
         self.update()
 
 

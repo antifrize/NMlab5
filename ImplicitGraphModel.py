@@ -7,24 +7,77 @@ from math import fabs
 
 
 class ImplicitGraphModel(GridGraphModel.GridGraphModel):
+
     def __init__(self):
         GridGraphModel.GridGraphModel.__init__(self)
-        self.makeGrid()
+        self.makeGrid(0)
+
         
-    def makeSLAE(self,line,t):
+    def makeSLAE(self,line,t,n):
         slae = []
+        a = AppConsts.a
+        b = AppConsts.b
+        alpha = AppConsts.alpha
+        beta = AppConsts.beta
+        gamma = AppConsts.gamma
+        delta = AppConsts.delta
+        phi_0 = AppConsts.getPhi_0
+        phi_l = AppConsts.getPhi_l
+        h = AppConsts.h
+        tau = AppConsts.tau
 
-        slae.append([0,AppConsts.beta-AppConsts.alpha/AppConsts.h,AppConsts.alpha/AppConsts.h,
-                     AppConsts.getPhi_0(AppConsts.gradT[len(self.grid)+1])/(AppConsts.beta-AppConsts.alpha/AppConsts.h)])
-        for (u,un) in zip(line[1:-1],range(1,len(line))):
-            #print()
-            slae.append([-AppConsts.a/AppConsts.h**2*AppConsts.tau+AppConsts.tau*AppConsts.b/(2*AppConsts.h),
-                         1+2*AppConsts.a*AppConsts.tau/AppConsts.h**2-AppConsts.b*AppConsts.tau/(2*AppConsts.h)+AppConsts.tau*AppConsts.getC(AppConsts.gradX[un],AppConsts.gradT[t])
-                            ,-AppConsts.a*AppConsts.tau/AppConsts.h**2,u+AppConsts.tau*AppConsts.getD(AppConsts.gradX[un],AppConsts.gradT[t])])
-        slae.append([-AppConsts.gamma/AppConsts.h, AppConsts.delta+AppConsts.gamma/AppConsts.h, 0
-            ,AppConsts.getPhi_l(AppConsts.gradT[len(self.grid)+1])/(AppConsts.delta+AppConsts.gamma/AppConsts.h)])
 
+        if n<=0:
+            slae.append([0,AppConsts.beta-AppConsts.alpha/AppConsts.h,AppConsts.alpha/AppConsts.h,
+                         AppConsts.getPhi_0(AppConsts.gradT[len(self.grid)])
+            #              /(AppConsts.beta-AppConsts.alpha/AppConsts.h)
+            ])
+            for (u,un) in zip(line[1:-1],range(1,len(line)-1)):
+                #print()
+                slae.append([-a*tau/h**2+b*tau,
+                                1+2*a*tau/h**2 - AppConsts.getC(AppConsts.gradX[un],AppConsts.gradT[t])*tau,
+                            -a/h**2*tau-tau*b/(2*h),
+                             u+tau*AppConsts.getD(AppConsts.gradX[un],AppConsts.gradT[t])])
+            slae.append([-gamma/h, delta+gamma/h, 0
+                ,phi_l(AppConsts.gradT[len(self.grid)])
+                 #/(AppConsts.delta+AppConsts.gamma/AppConsts.h)
+             ])
 
+        if n==2:
+            slae.append([0,-3*alpha/(2*h)+beta,2*alpha/h,phi_0(AppConsts.gradT[len(self.grid)])])
+            for (u,un) in zip(line[1:-1],range(1,len(line))):
+                #print()
+                slae.append([-a*tau/h**2+b*tau,
+                                1+2*a*tau/h**2 - AppConsts.getC(AppConsts.gradX[un],AppConsts.gradT[t])*tau,
+                            -a/h**2*tau-tau*b/(2*h),
+                             u+tau*AppConsts.getD(AppConsts.gradX[un],AppConsts.gradT[t])])
+            slae.append([delta - 2*gamma/(h),3.*gamma/(2*h), 0
+                ,phi_l(AppConsts.gradT[len(self.grid)])])
+
+            coeff =  (-1.*alpha/(2*h))/slae[1][2]
+            slae[0][1] -= slae[1][0]*coeff
+            slae[0][2] -= slae[1][1]*coeff
+            slae[0][3] -= slae[1][3]*coeff
+
+            coeff =  (1.*gamma/(2*h))/slae[-2][0]
+            slae[-1][0] -= slae[-2][1]*coeff
+            slae[-1][1] -= slae[-2][2]*coeff
+            slae[-1][3] -= slae[-2][3]*coeff
+
+        if n==1:
+            slae.append([0,
+            2*a/h + h/tau-AppConsts.getC(0,AppConsts.gradT[t])*h-beta/alpha*(2*a-b*h),
+            -2*a/h,
+            h/tau*self.grid[-1][0]-phi_0(AppConsts.gradT[len(self.grid)])*(2*a-b*h)/alpha])
+            for (u,un) in zip(line[1:-1],range(1,len(line))):
+                slae.append([-a*tau/h**2+b*tau,
+                                1+2*a*tau/h**2 - AppConsts.getC(AppConsts.gradX[un],AppConsts.gradT[t])*tau,
+                            -a/h**2*tau-tau*b/(2*h),
+                             u+tau*AppConsts.getD(AppConsts.gradX[un],AppConsts.gradT[t])])
+            slae.append([-2*a/h,
+            2*a/h + h/tau-AppConsts.getC(0,AppConsts.gradT[t])*h+delta/gamma*(2*a+b*h),
+            0,
+            h/tau*self.grid[-1][-1]+phi_l(AppConsts.gradT[len(self.grid)])*(2*a+b*h)/gamma])
         return slae
 
     def isDiagMatrix(self,matrix):
@@ -33,20 +86,22 @@ class ImplicitGraphModel(GridGraphModel.GridGraphModel):
                 return False
         return True
 
-    def makeGrid(self):
+    def makeGrid(self,n):
         self.grid=[]
         self.diag = True
         self.grid.append([AppConsts.getInitCondition(x) for x in AppConsts.gradX])
-        for k in range(1,len(AppConsts.gradT)-1):
-            slae = self.makeSLAE(self.grid[-1],k)
-            if not  self.isDiagMatrix(slae):
+        for k in range(1,len(AppConsts.gradT)):
+            slae = self.makeSLAE(self.grid[-1],k,n)
+            if not self.isDiagMatrix(slae):
                 self.diag = False
+                # print("f.ail slae: ",str(slae))
+
             self.grid.append(solve1(slae))
-            if k==1:
+            # if k<10:
             #    print('solutions = ')
-                print(slae)
-                print(solveTMA(slae))
-                print(solve1(slae))
+            #     print(slae)
+                # print(solveTMA(slae))
+                # print(solve1(slae))
             #    print(list(solve1(slae)))
 
 

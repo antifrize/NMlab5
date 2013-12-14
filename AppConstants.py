@@ -42,7 +42,7 @@ class AppConsts:
     print('h = ',h)
     tau = sigma * h**2/a
     print('tau = ',tau)
-    tN = int((maxT-minT)/tau)
+    maxT = tN/tau
     gradX = [x_0+i*h for i in range(lN+1)]
     print('gradX = ', gradX)
     gradT = [minT+i*tau for i in range(tN+1)]
@@ -81,9 +81,9 @@ class AppConsts:
         AppConsts.tN = int(AppConsts.tN)
         AppConsts.h = (AppConsts.x_l-AppConsts.x_0)*1./AppConsts.lN
         print('h = ',AppConsts.h)
-        AppConsts.tau = AppConsts.sigma * AppConsts.h**2/AppConsts.a
+        AppConsts.tau = (AppConsts.sigma-0.05) * AppConsts.h**2/AppConsts.a
         print('tau = ',AppConsts.tau)
-        AppConsts.tN = int((AppConsts.maxT-AppConsts.minT)/AppConsts.tau)
+        AppConsts.maxT = AppConsts.tN/AppConsts.tau
         AppConsts.gradX = [AppConsts.x_0+i*AppConsts.h for i in range(AppConsts.lN+1)]
         # print('gradX = ', AppConsts.gradX)
         AppConsts.gradT = [AppConsts.minT+i*AppConsts.tau for i in range(AppConsts.tN+1)]

@@ -9,7 +9,7 @@ class MixedGraphModel(GridGraphModel.GridGraphModel):
 
     def makeGrid(self,explicitGM,implicitGM,Q):
         self.grid = []
-        for t in range(len(AppConsts.gradT)-1):
+        for t in range(len(AppConsts.gradT)):
             self.grid.append([Q*explicitGM.getT(x,t)
                     +(1-Q)*implicitGM.getT(x,t) for x in range(len(AppConsts.gradX))])
 
