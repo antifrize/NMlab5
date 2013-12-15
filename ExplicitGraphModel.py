@@ -10,29 +10,32 @@ class ExplicitGraphModel(GridGraphModel.GridGraphModel):
 
     def remakeGrid(self,l):
         self.grid = []
+        h = AppConsts.h
+        alpha = AppConsts.alpha
+        beta = AppConsts.beta
+        gamma = AppConsts.gamma
+        delta = AppConsts.delta
+        phi_0 = AppConsts.getPhi_0
+        phi_l = AppConsts.getPhi_l
+        a = AppConsts.a
+        b = AppConsts.b
+        k = AppConsts.k
+        tau = AppConsts.tau
         self.grid.append([AppConsts.getInitCondition(x) for x in AppConsts.gradX])
-        for t in range(1,len(AppConsts.gradT)):
-            newLine = [AppConsts.a*AppConsts.tau/AppConsts.h**2*(self.grid[-1][x-1]-2*self.grid[-1][x]+self.grid[-1][x+1])+
-                                                                 AppConsts.b*AppConsts.tau/(2*AppConsts.h)*(self.grid[-1][x+1]-self.grid[-1][x])+
-                                                                                                        self.grid[-1][x]+
-                                                                AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])*self.grid[-1][x]
-                                                                 *AppConsts.tau
-                       +AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t])*AppConsts.tau# if (AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t])-AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t-1]))==0
-                       # (AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t])-AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t-1]))
+        self.grid.append([AppConsts.getInitCondition(x)+AppConsts.getInitDerrivative(x)*AppConsts.tau for x in AppConsts.gradX])
+        for t in range(2,len(AppConsts.gradT)):
+            newLine = [(a/h**2*(self.grid[-1][x-1]-2*self.grid[-1][x]+self.grid[-1][x+1])+
+                                        b/h*(self.grid[-1][x+1]-self.grid[-1][x])+
+                                               AppConsts.getC(AppConsts.gradX[x],AppConsts.gradT[t])*self.grid[-1][x]
+                        +AppConsts.getD(AppConsts.gradX[x],AppConsts.gradT[t])
+                        -(-2*self.grid[-1][x]+self.grid[-2][x])*1./tau**2
+                         +k*1./tau*self.grid[-1][x])*1.
+                        /
+                        (1./tau**2+k/tau)
 
                        for x in range(1,AppConsts.lN)]
 
             x = int(len(AppConsts.gradX)/2)
-            h = AppConsts.h
-            alpha = AppConsts.alpha
-            beta = AppConsts.beta
-            gamma = AppConsts.gamma
-            delta = AppConsts.delta
-            phi_0 = AppConsts.getPhi_0
-            phi_l = AppConsts.getPhi_l
-            a = AppConsts.a
-            b = AppConsts.b
-            tau = AppConsts.tau
             # if t%2==0:
             #      print(str(
             #          -(AppConsts.alpha/AppConsts.h)/(AppConsts.beta - AppConsts.alpha/AppConsts.h)*

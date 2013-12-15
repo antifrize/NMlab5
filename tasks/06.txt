@@ -1,14 +1,16 @@
 [task]
+k = 0
 a = 1
-b = 0
-c = 0
-d = cos(x)*(cos(t)+sin(t))
+b = 2
+c = -2
+d = 0
 alpha = 0
 beta = 1
-gamma = 1
-delta = 0
-phi_0 = sin(t)
-phi_l = -sin(t)
-initCondition = 0
-resF = sin(t)*cos(x)
+gamma = 0
+delta = 1
+phi_0 = cos(2*t)
+phi_l = 0
+initCondition = exp(-x)*cos(x)
+initDerrivative = 0
+resF = exp(-x)*cos(x)*cos(2*t)
 x_l = pi/2

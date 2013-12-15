@@ -1,14 +1,16 @@
 [task]
+k = 0
 a = 1
 b = 0
-c = 0
+c = -3
 d = 0
 alpha = 0
 beta = 1
 gamma = 0
 delta = 1
-phi_0 = exp(-a*t)
-phi_l = -exp(-a*t)
-initCondition = cos(x)
-resF = exp(-a*t)*cos(x)
+phi_0 = sin(2*t)
+phi_l = -sin(2*t)
+initCondition = 0
+initDerrivative = 2*cos(x)
+resF = cos(x)*sin(2*t)
 x_l = pi

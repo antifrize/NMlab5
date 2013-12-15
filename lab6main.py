@@ -26,8 +26,8 @@ class MyLineEdit(QtGui.QLineEdit):
         pass
 class Lab5MainWidget(QtGui.QWidget):
     recomputeFlag = True
-    floatNames =("a","b","Q","alpha","beta","delta","gamma","lN","tN","sigma")
-    evalNames = ("c","d","phi_0","phi_l","initCondition","resF")
+    floatNames =("a","b","k","Q","alpha","beta","delta","gamma","lN","tN","sigma")
+    evalNames = ("c","d","phi_0","phi_l","initCondition","initDerrivative","resF")
 
     def __init__(self,parent=None):
         QtGui.QWidget.__init__(self,parent)
@@ -44,6 +44,7 @@ class Lab5MainWidget(QtGui.QWidget):
         self.taskChange(0)
         self.refreshView()
         self.approxComboBox.currentIndexChanged.connect(self.recompute)
+        self.approxInitComboBox.currentIndexChanged.connect(self.recompute)
         sip.setdestroyonexit(False)
 
 
@@ -87,6 +88,8 @@ class Lab5MainWidget(QtGui.QWidget):
 
     def fillEquationLayout(self):
         layout = QtGui.QHBoxLayout()
+        layout.addWidget(QtGui.QLabel("d^2u/dt^2+"))
+        layout.addWidget(self.kLineEdit)
         layout.addWidget(QtGui.QLabel("du/dt="))
         layout.addWidget(self.aLineEdit)
         layout.addWidget(QtGui.QLabel("d^2u/dx^2+"))
@@ -108,6 +111,12 @@ class Lab5MainWidget(QtGui.QWidget):
         layout = QtGui.QHBoxLayout()
         layout.addWidget(QtGui.QLabel("u(x,0)="))
         layout.addWidget(self.initConditionLineEdit)
+        return layout
+
+    def fillInitDerrivativeLayout(self):
+        layout = QtGui.QHBoxLayout()
+        layout.addWidget(QtGui.QLabel("du/dt(x,0)="))
+        layout.addWidget(self.initDerrivativeLineEdit)
         return layout
 
 
@@ -153,6 +162,7 @@ class Lab5MainWidget(QtGui.QWidget):
         self.schemeComboBox.setCurrentIndex(0)
         self.schemeComboBox.currentIndexChanged.connect(self.schemeChangeEvent)
         self.approxComboBox = QtGui.QComboBox()
+        self.approxInitComboBox = QtGui.QComboBox()
         self.taskNo = QtGui.QComboBox()
         for i in range(1,len(TaskLoader.tasks)-1):
             self.taskNo.addItem(str(i),100)
@@ -166,7 +176,8 @@ class Lab5MainWidget(QtGui.QWidget):
         leftUpperLayout.addRow(QtGui.QLabel(u"Q = "),self.QLineEdit)
         self.tauLbl = QtGui.QLabel()
         leftUpperLayout.addRow(QtGui.QLabel(u"tau = "),self.tauLbl)
-        rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация"),self.approxComboBox)
+        rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация границ"),self.approxComboBox)
+        rightUpperLayout.addRow(QtGui.QLabel(u"Аппроксимация начального"),self.approxInitComboBox)
         rightUpperLayout.addRow(QtGui.QLabel(u"t = "),self.t)
         rightUpperLayout.addRow(QtGui.QLabel(u"tN = "),self.tNLineEdit)
         rightUpperLayout.addRow(QtGui.QLabel(u"Sigma = "),self.sigmaLineEdit)
@@ -208,6 +219,7 @@ class Lab5MainWidget(QtGui.QWidget):
     def fillLayouts(self):
         equationLayout = self.fillEquationLayout()
         initConditionLayout = self.fillInitConditionLayout()
+        initDerrivativeLayout = self.fillInitDerrivativeLayout()
         sideConditionLayout = self.fillSideConditionLayout()
         analogLayout = self.fillAnalogLayout()
         settingsLayout = self.fillSettingsLayout()
@@ -216,6 +228,7 @@ class Lab5MainWidget(QtGui.QWidget):
 
         mainLayout.addItem(equationLayout)
         mainLayout.addItem(initConditionLayout)
+        mainLayout.addItem(initDerrivativeLayout)
         mainLayout.addItem(sideConditionLayout)
         mainLayout.addItem(analogLayout)
         mainLayout.addItem(settingsLayout)

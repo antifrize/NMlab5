@@ -11,6 +11,7 @@ class AppConsts:
 
     a = 1
     b = 0
+    k = 0
     c = ""
     d = ""
 
@@ -34,6 +35,7 @@ class AppConsts:
     scheme = Scheme.EXPLICIT
 
     initCondition = "sin(2*pi*x)"
+    initDerrivative = "1"
     phi_0 = "0"
     phi_l = "0"
     resF = "exp(-4*pi**2*AppConsts.a*t)*sin(2*pi*x)"
@@ -62,10 +64,12 @@ class AppConsts:
     def loadTask(task):
         AppConsts.a = eval(task['a'])
         AppConsts.b = eval(task['b'])
+        AppConsts.k = eval(task['k'])
         AppConsts.c = task['c']
         AppConsts.d = task['d']
         AppConsts.x_l = eval(task['x_l'])
         AppConsts.initCondition = task['initCondition']
+        AppConsts.initDerrivative = task['initDerrivative']
         AppConsts.phi_0 = task['phi_0']
         AppConsts.phi_l = task['phi_l']
         AppConsts.resF = task['resF']
@@ -88,12 +92,20 @@ class AppConsts:
         # print('gradX = ', AppConsts.gradX)
         AppConsts.gradT = [AppConsts.minT+i*AppConsts.tau for i in range(AppConsts.tN+1)]
         # print('gradT = ', AppConsts.gradT)
+
     @staticmethod
     def getInitCondition(x):
         a = AppConsts.a
         b = AppConsts.b
         c = AppConsts.getC(x,0)
         return eval(AppConsts.initCondition)
+
+    @staticmethod
+    def getInitDerrivative(x):
+        a = AppConsts.a
+        b = AppConsts.b
+        c = AppConsts.getC(x,0)
+        return eval(AppConsts.initDerrivative)
 
     @staticmethod
     def getPhi_0(t):

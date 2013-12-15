@@ -2,32 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0673851e-bd36-499f-b6d7-ffef5781061e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasks/07.txt" afterPath="$PROJECT_DIR$/tasks/07.txt" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\03.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\04.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\05.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\06.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\07.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\08.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\09.txt" afterPath="" />
+      <change type="DELETED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks\10.txt" afterPath="" />
+      <change type="MOVED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\lab5.py" afterPath="$PROJECT_DIR$/lab6.py" />
+      <change type="MOVED" beforePath="C:\Users\Antifrize\Documents\GitHub\NMlab6\lab5main.py" afterPath="$PROJECT_DIR$/lab6main.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasks/01.txt" afterPath="$PROJECT_DIR$/tasks/01.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tasks/02.txt" afterPath="$PROJECT_DIR$/tasks/02.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/AppConstants.py" afterPath="$PROJECT_DIR$/AppConstants.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ExplicitGraphModel.py" afterPath="$PROJECT_DIR$/ExplicitGraphModel.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ImplicitGraphModel.py" afterPath="$PROJECT_DIR$/ImplicitGraphModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/MixedGraphModel.py" afterPath="$PROJECT_DIR$/MixedGraphModel.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lab5main.py" afterPath="$PROJECT_DIR$/lab5main.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="NMlab5.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387018994378" ignored="false" />
-    <file path="/ImplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386206651101" ignored="false" />
+    <file path="/Dummy.txt" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387019295181" ignored="false" />
+    <file path="/ImplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387040526046" ignored="false" />
     <file path="/lab5main.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386241275501" ignored="false" />
-    <file path="/AppConstants.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386243861071" ignored="false" />
+    <file path="/AppConstants.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387033754503" ignored="false" />
     <file path="/TaskLoader.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1385004492096" ignored="false" />
-    <file path="/ExplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386245063125" ignored="false" />
+    <file path="/ExplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387036912495" ignored="false" />
     <file path="/Deriivative.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1385007955339" ignored="false" />
     <file path="/fragment.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386212959147" ignored="false" />
     <file path="/MixedGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386122504392" ignored="false" />
-    <file path="$PROJECT_DIR$/../NMlab6/lab6main.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386243838918" ignored="false" />
-    <file path="/lab6main.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386243838918" ignored="false" />
-    <file path="$PROJECT_DIR$/../NMlab6/ExplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386245096577" ignored="false" />
-    <file path="$PROJECT_DIR$/../NMlab6/AppConstants.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386243918951" ignored="false" />
-    <file path="$PROJECT_DIR$/../NMlab6/ImplicitGraphModel.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386243969849" ignored="false" />
+    <file path="/lab6main.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387036666556" ignored="false" />
     <file path="$PROJECT_DIR$/../sort/sort.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386263772942" ignored="false" />
     <file path="/sort.py" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1386263769294" ignored="false" />
+    <file path="/01.txt" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387020497003" ignored="false" />
+    <file path="/a.dummy" changelist="0673851e-bd36-499f-b6d7-ffef5781061e" time="1387033126783" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,21 +48,17 @@
   <component name="DaemonCodeAnalyzer">
     <disable_hints />
   </component>
+  <component name="DatabaseView">
+    <flatten value="false" />
+    <groupTables value="false" />
+    <sortChildren value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="NMlab5" />
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="lab5main.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/lab5main.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="156" column="50" selection-start="5532" selection-end="5532" vertical-scroll-proportion="0.028911564">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="GridGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -68,7 +71,7 @@
       <file leaf-file-name="MixedGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/MixedGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="82" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
+            <state line="12" column="52" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -86,7 +89,7 @@
       <file leaf-file-name="ExplicitGraphModel.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="116" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
+            <state line="54" column="16" selection-start="2693" selection-end="2693" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -101,10 +104,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ImplicitGraphModel.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="ImplicitGraphModel.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ImplicitGraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="77" column="86" selection-start="3151" selection-end="3225" vertical-scroll-proportion="0.0">
+            <state line="84" column="52" selection-start="0" selection-end="4953" vertical-scroll-proportion="0.39945653">
               <folding />
             </state>
           </provider>
@@ -113,7 +116,7 @@
       <file leaf-file-name="AppConstants.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/AppConstants.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="19" column="15" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0">
+            <state line="66" column="37" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -123,6 +126,15 @@
         <entry file="file://$PROJECT_DIR$/GraphModel.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="2" column="6" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="lab6main.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/lab6main.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="85" column="0" selection-start="2933" selection-end="2933" vertical-scroll-proportion="-2.04">
               <folding />
             </state>
           </provider>
@@ -153,11 +165,14 @@
         <option value="$PROJECT_DIR$/TaskLoader.py" />
         <option value="$PROJECT_DIR$/Deriivative.py" />
         <option value="$PROJECT_DIR$/MixedGraphModel.py" />
-        <option value="$PROJECT_DIR$/AppConstants.py" />
-        <option value="$PROJECT_DIR$/ImplicitGraphModel.py" />
         <option value="$PROJECT_DIR$/GridGraphModel.py" />
-        <option value="$PROJECT_DIR$/ExplicitGraphModel.py" />
         <option value="$PROJECT_DIR$/lab5main.py" />
+        <option value="$PROJECT_DIR$/tasks/01.txt" />
+        <option value="$PROJECT_DIR$/AppConstants.py" />
+        <option value="$PROJECT_DIR$/tasks/02.txt" />
+        <option value="$PROJECT_DIR$/lab6main.py" />
+        <option value="$PROJECT_DIR$/ExplicitGraphModel.py" />
+        <option value="$PROJECT_DIR$/ImplicitGraphModel.py" />
       </list>
     </option>
   </component>
@@ -181,7 +196,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1" splitterProportion="0.5">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -192,17 +207,53 @@
       <autoscrollFromSource />
       <sortByType />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab5" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="NMlab6" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tasks" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="settings.github" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../NMlab6" />
+    <property name="options.lastSelected" value="settings.github" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -212,8 +263,13 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.lab5main">
-    <configuration default="false" name="lab5" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Antifrize\Documents\GitHub\NMlab6\tasks" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.lab6main">
+    <configuration default="false" name="lab6" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -226,13 +282,13 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="NMlab5" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab5.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Antifrize\Documents\GitHub\NMlab6\lab6.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
-    <configuration default="false" name="lab5main" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="lab6main" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -245,7 +301,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="NMlab5" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/lab5main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Antifrize\Documents\GitHub\NMlab6\lab6main.py" />
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
@@ -419,16 +475,16 @@
       <method />
     </configuration>
     <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.lab5" />
-      <item index="1" class="java.lang.String" itemvalue="Python.lab5main" />
+      <item index="0" class="java.lang.String" itemvalue="Python.lab6" />
+      <item index="1" class="java.lang.String" itemvalue="Python.lab6main" />
       <item index="2" class="java.lang.String" itemvalue="Python.TaskLoader" />
       <item index="3" class="java.lang.String" itemvalue="Python.ImplicitGraphModel" />
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.lab5main" />
+        <item index="0" class="java.lang.String" itemvalue="Python.lab6main" />
         <item index="1" class="java.lang.String" itemvalue="Python.ImplicitGraphModel" />
-        <item index="2" class="java.lang.String" itemvalue="Python.lab5" />
+        <item index="2" class="java.lang.String" itemvalue="Python.lab6" />
         <item index="3" class="java.lang.String" itemvalue="Python.TaskLoader" />
       </list>
     </recent_temporary>
@@ -509,27 +565,31 @@
       <created>1385013700762</created>
       <updated>1385013700762</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Merge branch 'master' of https://github.com/antifrize/NMlab5&#10;&#10;Conflicts:&#10;&#9;.idea/workspace.xml&#10;&#9;ImplicitGraphModel.py&#10;&#9;MixedGraphModel.py&#10;">
+      <created>1387019051970</created>
+      <updated>1387019051970</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298887" sideWeight="0.6848" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23211446" sideWeight="0.68102074" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23608904" sideWeight="0.6848" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3939394" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3152" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32854864" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -614,21 +674,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/TMA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="12" selection-start="428" selection-end="428" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AnalogGraphModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://C:/Python27/Lib/site-packages/configparser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1066" column="0" selection-start="42315" selection-end="42315" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Deriivative.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="4" column="11" selection-start="61" selection-end="61" vertical-scroll-proportion="0.17989418" />
@@ -653,21 +698,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/MixedGraphModel.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="82" selection-start="485" selection-end="485" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/AppConstants.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="15" selection-start="226" selection-end="226" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ImplicitGraphModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="86" selection-start="3151" selection-end="3225" vertical-scroll-proportion="0.0">
+        <state line="12" column="52" selection-start="402" selection-end="402" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -684,17 +715,12 @@
         <state line="1480" column="0" selection-start="59057" selection-end="59057" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
+    <entry file="file://$PROJECT_DIR$/lab6.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="116" selection-start="2591" selection-end="2591" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="105" column="0" selection-start="4348" selection-end="4348" vertical-scroll-proportion="0.045945946">
+          <folding>
+            <element signature="e#24#39#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -705,9 +731,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/lab5main.py">
+    <entry file="file://$PROJECT_DIR$/tasks/01.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="156" column="50" selection-start="5532" selection-end="5532" vertical-scroll-proportion="0.028911564">
+        <state line="14" column="16" selection-start="176" selection-end="176" vertical-scroll-proportion="0.7248062">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/AppConstants.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="66" column="37" selection-start="1179" selection-end="1179" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tasks/02.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lab6main.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="85" column="0" selection-start="2933" selection-end="2933" vertical-scroll-proportion="-2.04">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ExplicitGraphModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="16" selection-start="2693" selection-end="2693" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GridGraphModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="541" selection-end="541" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ImplicitGraphModel.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="52" selection-start="0" selection-end="4953" vertical-scroll-proportion="0.39945653">
           <folding />
         </state>
       </provider>
